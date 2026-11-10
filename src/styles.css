@@ -1,0 +1,243 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ARTHITECT design system.
+ * Editorial architectural palette: warm paper, stone, sand, muted olive,
+ * charcoal, oak and clay. All colors use oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ARTHITECT editorial tokens */
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-sand: var(--sand);
+  --color-clay: var(--clay);
+  --color-oak: var(--oak);
+  --color-olive: var(--olive);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Manrope", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --radius: 0.125rem;
+  --background: oklch(0.972 0.008 84);
+  --foreground: oklch(0.235 0.015 75);
+  --card: oklch(0.985 0.005 84);
+  --card-foreground: oklch(0.235 0.015 75);
+  --popover: oklch(0.985 0.005 84);
+  --popover-foreground: oklch(0.235 0.015 75);
+  --primary: oklch(0.26 0.02 75);
+  --primary-foreground: oklch(0.962 0.01 84);
+  --secondary: oklch(0.932 0.016 85);
+  --secondary-foreground: oklch(0.3 0.02 75);
+  --muted: oklch(0.932 0.016 85);
+  --muted-foreground: oklch(0.52 0.02 75);
+  --accent: oklch(0.46 0.055 112);
+  --accent-foreground: oklch(0.962 0.01 84);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.885 0.012 82);
+  --input: oklch(0.885 0.012 82);
+  --ring: oklch(0.46 0.055 112);
+
+  --paper: oklch(0.972 0.008 84);
+  --ink: oklch(0.21 0.015 75);
+  --sand: oklch(0.9 0.03 82);
+  --clay: oklch(0.62 0.06 60);
+  --oak: oklch(0.45 0.075 62);
+  --olive: oklch(0.45 0.06 112);
+}
+
+.dark {
+  --background: oklch(0.21 0.015 75);
+  --foreground: oklch(0.955 0.012 84);
+  --card: oklch(0.26 0.02 75);
+  --card-foreground: oklch(0.955 0.012 84);
+  --popover: oklch(0.26 0.02 75);
+  --popover-foreground: oklch(0.955 0.012 84);
+  --primary: oklch(0.955 0.012 84);
+  --primary-foreground: oklch(0.21 0.015 75);
+  --secondary: oklch(0.3 0.02 75);
+  --secondary-foreground: oklch(0.955 0.012 84);
+  --muted: oklch(0.3 0.02 75);
+  --muted-foreground: oklch(0.7 0.02 80);
+  --accent: oklch(0.46 0.055 112);
+  --accent-foreground: oklch(0.955 0.012 84);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.46 0.055 112);
+
+  --paper: oklch(0.21 0.015 75);
+  --ink: oklch(0.955 0.012 84);
+  --sand: oklch(0.3 0.02 78);
+  --clay: oklch(0.62 0.06 60);
+  --oak: oklch(0.45 0.075 62);
+  --olive: oklch(0.6 0.06 112);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-olive);
+    color: var(--color-primary-foreground);
+  }
+
+  img {
+    user-select: none;
+  }
+}
+
+/* ---------- Editorial utilities ---------- */
+
+@utility text-overline {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+@utility display-hero {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+@utility display-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+/* Thin ruled line used across editorial layouts */
+@utility rule {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility img-editorial {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SplitText mask: lines are wrapped in overflow-hidden parents */
+@utility split-mask {
+  overflow: hidden;
+  display: block;
+}
+
+/* Soft organic accents to bring quiet color into open text areas. */
+.organic-wash {
+  position: absolute;
+  z-index: 0;
+  width: clamp(9rem, 19vw, 18rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.organic-wash::before,
+.organic-wash::after {
+  position: absolute;
+  content: "";
+}
+
+.organic-wash::before {
+  inset: 8%;
+  border-radius: 61% 39% 48% 52% / 43% 58% 42% 57%;
+  background: color-mix(in oklab, var(--color-sand) 60%, var(--color-olive) 8%);
+  opacity: 0.48;
+  transform: rotate(-14deg);
+}
+
+.organic-wash::after {
+  inset: 0;
+  border: 1px solid color-mix(in oklab, var(--color-olive) 14%, transparent);
+  border-radius: 42% 58% 57% 43% / 54% 40% 60% 46%;
+  transform: rotate(12deg);
+}
+
+.organic-wash--small {
+  width: clamp(8rem, 14vw, 13rem);
+}
+
+.organic-wash--wide {
+  width: clamp(11rem, 22vw, 20rem);
+}
+
+.organic-wash--light::before {
+  background: color-mix(in oklab, var(--color-paper) 16%, var(--color-clay) 10%);
+  opacity: 0.22;
+}
+
+.organic-wash--light::after {
+  border-color: color-mix(in oklab, var(--color-paper) 12%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .organic-wash::before {
+    animation: organic-wash-drift 16s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes organic-wash-drift {
+  from {
+    transform: rotate(-14deg) scale(0.98);
+  }
+
+  to {
+    transform: rotate(-7deg) scale(1.04);
+  }
+}
