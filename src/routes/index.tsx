@@ -31,7 +31,6 @@ export const Route = createFileRoute("/")({
 function Home() {
   useEffect(() => {
     const measurementId = "G-3TR6MX8B0D";
-
     if (document.getElementById("ga4-loader")) return;
 
     const configScript = document.createElement("script");
@@ -153,7 +152,7 @@ function HomeHero() {
           data-hero-fade
           className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
-          <p class="max-w-md text-sm leading-relaxed text-paper/80 md:text-base">
+          <p className="max-w-md text-sm leading-relaxed text-paper/80 md:text-base">
             An interior design studio crafting considered spaces rooted in African material culture,
             nature and restraint.
           </p>
@@ -179,11 +178,7 @@ function StatementSection() {
           <span aria-hidden="true" className="organic-wash organic-wash--wide -right-4 top-1/4" />
           <div className="relative z-10">
             <MaskedTitle
-              lines={[
-                "We shape space the way",
-                "the land shapes light —",
-                "slowly, honestly, permanently.",
-              ]}
+              lines={["We shape space the way", "the land shapes light —", "slowly, honestly, permanently."]}
               className="text-3xl md:text-6xl"
             />
             <p className="mt-10 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -191,9 +186,7 @@ function StatementSection() {
               that will shape it. What follows is a considered interior of quiet permanence —
               geometry borrowed from African craft, materials drawn from the earth.
             </p>
-            <ArrowLink to="/philosophy" className="mt-10">
-              Our philosophy
-            </ArrowLink>
+            <ArrowLink to="/philosophy" className="mt-10">Our philosophy</ArrowLink>
           </div>
         </div>
       </div>
@@ -205,28 +198,17 @@ function PhilosophyTeaser() {
   return (
     <section className="mx-auto max-w-[1600px] px-6 pb-28 md:px-10 md:pb-40">
       <div className="grid items-center gap-12 md:grid-cols-12">
-        <EditorialImage
-          src={images.philosophyNature}
-          alt="Sunlit courtyard with clay walls"
-          caption="Courtyard study — texture, light and shadow"
-          aspect="aspect-[4/5]"
-          className="md:col-span-7"
-        />
+        <EditorialImage src={images.philosophyNature} alt="Sunlit courtyard with clay walls" caption="Courtyard study — texture, light and shadow" aspect="aspect-[4/5]" className="md:col-span-7" />
         <div className="relative isolate md:col-span-4 md:col-start-9">
           <span aria-hidden="true" className="organic-wash organic-wash--small -right-3 top-1/3" />
           <div className="relative z-10">
             <Overline className="mb-6">Philosophy</Overline>
-            <MaskedTitle
-              lines={["Culture, nature", "and simplicity."]}
-              className="text-3xl md:text-4xl"
-            />
+            <MaskedTitle lines={["Culture, nature", "and simplicity."]} className="text-3xl md:text-4xl" />
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
               We draw from the geometry of African craft, the patience of natural materials and the
               discipline of minimalist design — nothing added, nothing missing.
             </p>
-            <ArrowLink to="/philosophy" className="mt-8">
-              Read the philosophy
-            </ArrowLink>
+            <ArrowLink to="/philosophy" className="mt-8">Read the philosophy</ArrowLink>
           </div>
         </div>
       </div>
@@ -242,38 +224,16 @@ function MaterialStudies() {
           <span aria-hidden="true" className="organic-wash organic-wash--small -left-5 top-1/4" />
           <div className="relative z-10">
             <Overline className="mb-5">Material studies</Overline>
-            <MaskedTitle
-              lines={["A closer look", "at the details."]}
-              className="text-3xl md:text-5xl"
-            />
+            <MaskedTitle lines={["A closer look", "at the details."]} className="text-3xl md:text-5xl" />
             <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
               Engraved Vatsonga patterns, fluted oak and dark marble — a closer look at the timber
               details carried through kitchens, wardrobes and living spaces.
             </p>
           </div>
         </div>
-
-        <EditorialImage
-          src={images.lvPattern}
-          alt="Fluted oak backdrop with an engraved Vatsonga pattern"
-          caption="Fluted oak and engraved Vatsonga pattern"
-          aspect="aspect-[4/3]"
-          className="md:col-span-7 md:col-start-1 md:row-start-2"
-        />
-        <EditorialImage
-          src={images.kwPattern}
-          alt="Engraved Vatsonga motif in fluted oak kitchen doors"
-          caption="Vatsonga pattern carved into fluted oak"
-          aspect="aspect-[5/6]"
-          className="md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-1 md:mt-12"
-        />
-        <EditorialImage
-          src={images.ktPattern}
-          alt="Engraved pattern on a dark marble kitchen's oak cabinet front"
-          caption="Oak engraving against dark marble"
-          aspect="aspect-[5/4]"
-          className="md:col-span-4 md:col-start-3"
-        />
+        <EditorialImage src={images.lvPattern} alt="Fluted oak backdrop with an engraved Vatsonga pattern" caption="Fluted oak and engraved Vatsonga pattern" aspect="aspect-[4/3]" className="md:col-span-7 md:col-start-1 md:row-start-2" />
+        <EditorialImage src={images.kwPattern} alt="Engraved Vatsonga motif in fluted oak kitchen doors" caption="Vatsonga pattern carved into fluted oak" aspect="aspect-[5/6]" className="md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-1 md:mt-12" />
+        <EditorialImage src={images.ktPattern} alt="Engraved pattern on a dark marble kitchen's oak cabinet front" caption="Oak engraving against dark marble" aspect="aspect-[5/4]" className="md:col-span-4 md:col-start-3" />
       </div>
     </section>
   );
@@ -291,111 +251,52 @@ function FeaturedWork() {
     if (prefersReducedMotion()) return;
 
     const mm = gsap.matchMedia();
-
     mm.add("(min-width: 768px)", () => {
       const tween = gsap.to(track, {
         x: () => -(track.scrollWidth - window.innerWidth),
         ease: "none",
         scrollTrigger: {
-          trigger: section,
-          start: "top top",
+          trigger: section, start: "top top",
           end: () => `+=${track.scrollWidth - window.innerWidth + 300}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+          pin: true, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true,
         },
       });
-      return () => {
-        tween.scrollTrigger?.kill();
-        tween.kill();
-      };
+      return () => { tween.scrollTrigger?.kill(); tween.kill(); };
     });
-
     mm.add("(max-width: 767px)", () => {
       const cards = track.querySelectorAll("[data-work-card]");
       const tweens = gsap.utils.toArray(cards).map((card) =>
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 48 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: { trigger: card, start: "top 92%" },
-          },
-        ),
+        gsap.fromTo(card, { opacity: 0, y: 48 }, {
+          opacity: 1, y: 0, duration: 0.9, ease: "power3.out",
+          scrollTrigger: { trigger: card, start: "top 92%" },
+        }),
       );
-      return () => {
-        tweens.forEach((t) => {
-          t.scrollTrigger?.kill();
-          t.kill();
-        });
-      };
+      return () => { tweens.forEach((t) => { t.scrollTrigger?.kill(); t.kill(); }); };
     });
-
     return () => mm.revert();
   }, []);
 
   return (
     <section ref={sectionRef} className="relative bg-sand/50 py-20 md:py-0">
       <div className="flex h-auto items-center overflow-hidden md:h-screen">
-        <div
-          ref={trackRef}
-          className="flex flex-col gap-12 px-6 will-change-transform md:h-full md:flex-row md:items-center md:gap-[4vw] md:px-[6vw]"
-        >
+        <div ref={trackRef} className="flex flex-col gap-12 px-6 will-change-transform md:h-full md:flex-row md:items-center md:gap-[4vw] md:px-[6vw]">
           <div className="relative isolate shrink-0 md:w-[26vw]">
             <span aria-hidden="true" className="organic-wash organic-wash--small -left-5 top-1/4" />
             <div className="relative z-10">
               <Overline className="mb-5">Selected work</Overline>
               <h2 className="display-title text-4xl md:text-5xl">Featured projects.</h2>
-              <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
-                A selection of interiors and crafted objects — each one an exercise in proportion,
-                material and light.
-              </p>
-              <ArrowLink to="/portfolio" className="mt-8">
-                View all projects
-              </ArrowLink>
+              <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">A selection of interiors and crafted objects — each one an exercise in proportion, material and light.</p>
+              <ArrowLink to="/portfolio" className="mt-8">View all projects</ArrowLink>
             </div>
           </div>
-
           {availableProjects.map((project) => (
-            <Link
-              key={project.slug}
-              to="/portfolio/$slug"
-              params={{ slug: project.slug }}
-              data-work-card
-              className="group block w-full shrink-0 md:w-[32vw]"
-            >
+            <Link key={project.slug} to="/portfolio/$slug" params={{ slug: project.slug }} data-work-card className="group block w-full shrink-0 md:w-[32vw]">
               <div className="aspect-[4/3] overflow-hidden bg-sand md:aspect-[3/4]">
-                {project.coverVideo ? (
-                  <video
-                    src={project.coverVideo}
-                    aria-label={`${project.title} project film`}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="img-editorial transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
-                  />
-                ) : (
-                  <img
-                    src={project.cover}
-                    alt={project.title}
-                    loading="lazy"
-                    className="img-editorial transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
-                  />
-                )}
+                {project.coverVideo ? <video src={project.coverVideo} aria-label={`${project.title} project film`} autoPlay muted loop playsInline preload="none" className="img-editorial transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]" /> : <img src={project.cover} alt={project.title} loading="lazy" className="img-editorial transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]" />}
               </div>
               <div className="mt-5 flex items-baseline justify-between gap-4">
-                <h3 className="display-title text-2xl transition-colors group-hover:text-olive md:text-3xl">
-                  {project.title}
-                </h3>
-                <span className="text-overline shrink-0 text-muted-foreground">
-                  {categoryLabel(project.category)}
-                </span>
+                <h3 className="display-title text-2xl transition-colors group-hover:text-olive md:text-3xl">{project.title}</h3>
+                <span className="text-overline shrink-0 text-muted-foreground">{categoryLabel(project.category)}</span>
               </div>
               <p className="mt-1 text-sm text-muted-foreground">{project.year}</p>
             </Link>
@@ -414,37 +315,17 @@ function ServicesIndex() {
         <span aria-hidden="true" className="organic-wash organic-wash--wide right-1/4 top-0" />
         <div className="relative z-10">
           <Overline className="mb-5">What we do</Overline>
-          <MaskedTitle
-            lines={["Five disciplines,", "one hand."]}
-            className="text-4xl md:text-6xl"
-          />
+          <MaskedTitle lines={["Five disciplines,", "one hand."]} className="text-4xl md:text-6xl" />
         </div>
-        <div className="relative z-10">
-          <ArrowLink to="/services">Explore services</ArrowLink>
-        </div>
+        <div className="relative z-10"><ArrowLink to="/services">Explore services</ArrowLink></div>
       </div>
       <ul ref={listRef}>
         {services.map((service, i) => (
-          <li
-            key={service.id}
-            className="group grid grid-cols-1 items-baseline gap-3 border-t border-border py-8 transition-colors last:border-b hover:bg-sand/50 md:grid-cols-12 md:gap-6 md:py-10"
-          >
-            <span className="text-overline text-muted-foreground md:col-span-1">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 className="display-title text-3xl transition-transform duration-500 group-hover:translate-x-2 md:col-span-5 md:text-4xl">
-              {service.title}
-            </h3>
-            <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:col-span-5">
-              {service.description}
-            </p>
-            <Link
-              to="/portfolio"
-              search={{ category: service.id === "interior-design" ? "interiors" : service.id }}
-              className="text-sm font-medium text-foreground opacity-0 transition-opacity group-hover:opacity-100 md:col-span-1 md:justify-self-end"
-            >
-              Work →
-            </Link>
+          <li key={service.id} className="group grid grid-cols-1 items-baseline gap-3 border-t border-border py-8 transition-colors last:border-b hover:bg-sand/50 md:grid-cols-12 md:gap-6 md:py-10">
+            <span className="text-overline text-muted-foreground md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
+            <h3 className="display-title text-3xl transition-transform duration-500 group-hover:translate-x-2 md:col-span-5 md:text-4xl">{service.title}</h3>
+            <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:col-span-5">{service.description}</p>
+            <Link to="/portfolio" search={{ category: service.id === "interior-design" ? "interiors" : service.id }} className="text-sm font-medium text-foreground opacity-0 transition-opacity group-hover:opacity-100 md:col-span-1 md:justify-self-end">Work →</Link>
           </li>
         ))}
       </ul>
@@ -457,18 +338,13 @@ function CtaSection() {
     <section className="bg-ink text-paper">
       <div className="mx-auto flex max-w-[1600px] flex-col items-start gap-8 px-6 py-28 md:flex-row md:items-end md:justify-between md:px-10 md:py-40">
         <div className="relative isolate">
-          <span aria-hidden="true" class="organic-wash organic-wash--light -left-6 top-1/4" />
+          <span aria-hidden="true" className="organic-wash organic-wash--light -left-6 top-1/4" />
           <div className="relative z-10">
             <Overline className="mb-6 text-paper/50">Begin</Overline>
-            <MaskedTitle
-              lines={["Every project begins", "with a conversation."]}
-              className="text-4xl text-paper md:text-6xl"
-            />
+            <MaskedTitle lines={["Every project begins", "with a conversation."]} className="text-4xl text-paper md:text-6xl" />
           </div>
         </div>
-        <ArrowLink to="/contact" light className="shrink-0 text-base">
-          Book a consultation
-        </ArrowLink>
+        <ArrowLink to="/contact" light className="shrink-0 text-base">Book a consultation</ArrowLink>
       </div>
     </section>
   );
