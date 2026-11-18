@@ -29,6 +29,27 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  useEffect(() => {
+    const measurementId = "G-3TR6MX8B0D";
+
+    if (document.getElementById("ga4-loader")) return;
+
+    const configScript = document.createElement("script");
+    configScript.textContent = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${measurementId}');
+    `;
+    document.head.appendChild(configScript);
+
+    const loaderScript = document.createElement("script");
+    loaderScript.id = "ga4-loader";
+    loaderScript.async = true;
+    loaderScript.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(loaderScript);
+  }, []);
+
   return (
     <>
       <HomeHero />
@@ -132,7 +153,7 @@ function HomeHero() {
           data-hero-fade
           className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
-          <p className="max-w-md text-sm leading-relaxed text-paper/80 md:text-base">
+          <p class="max-w-md text-sm leading-relaxed text-paper/80 md:text-base">
             An interior design studio crafting considered spaces rooted in African material culture,
             nature and restraint.
           </p>
@@ -436,7 +457,7 @@ function CtaSection() {
     <section className="bg-ink text-paper">
       <div className="mx-auto flex max-w-[1600px] flex-col items-start gap-8 px-6 py-28 md:flex-row md:items-end md:justify-between md:px-10 md:py-40">
         <div className="relative isolate">
-          <span aria-hidden="true" className="organic-wash organic-wash--light -left-6 top-1/4" />
+          <span aria-hidden="true" class="organic-wash organic-wash--light -left-6 top-1/4" />
           <div className="relative z-10">
             <Overline className="mb-6 text-paper/50">Begin</Overline>
             <MaskedTitle
